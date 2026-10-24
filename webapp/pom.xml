@@ -5,22 +5,32 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
+    <!-- Parent Maven project -->
+    <parent>
+        <groupId>com.example</groupId>
+        <artifactId>FormFillApp-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <!-- Web application details -->
     <artifactId>FormFillApp</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>FormFillApp</name>
     <description>FormFillApp web application</description>
 
+    <!-- Java configuration -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.release>21</maven.compiler.release>
     </properties>
 
+    <!-- Application dependencies -->
     <dependencies>
-        <!-- Servlet API for applications using javax.servlet -->
+
+        <!-- Servlet API for javax.servlet applications -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
@@ -57,12 +67,16 @@
             <version>5.14.2</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
+    <!-- Build configuration -->
     <build>
         <finalName>FormFillApp</finalName>
 
         <plugins>
+
+            <!-- Java compiler -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -72,6 +86,7 @@
                 </configuration>
             </plugin>
 
+            <!-- WAR packaging -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -81,13 +96,17 @@
                 </configuration>
             </plugin>
 
+            <!-- Unit tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.4</version>
             </plugin>
+
         </plugins>
     </build>
 
 </project>
+
+~
 
